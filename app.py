@@ -107,151 +107,106 @@ def registrar_acesso():
 total_visitas = registrar_acesso()
 
 # ---------------------------------------------------------
-# 3. MAPEAMENTO COMPLETO DE LOGOS & LINKS DE CAREERS
+# 3. MAPEAMENTO COMPLETO DE EMPRESAS, LOGOS, LINKS E MODALIDADE
 # ---------------------------------------------------------
-LOGOS_EMPRESAS = {
-    # Big Techs & Mapeamento Anterior
-    "Accenture": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
-    "Adobe": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_corporate_logo.svg",
-    "Airbnb": "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
-    "Amazon": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-    "Apple": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-    "Bloomberg": "https://upload.wikimedia.org/wikipedia/commons/7/75/Bloomberg_logo.svg",
-    "Cisco": "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
-    "DoorDash": "https://upload.wikimedia.org/wikipedia/commons/4/4c/DoorDash_Logo.svg",
-    "eBay": "https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg",
-    "Facebook": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-    "Goldman Sachs": "https://upload.wikimedia.org/wikipedia/commons/6/61/Goldman_Sachs.svg",
-    "Google": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-    "LinkedIn": "https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg",
-    "Lyft": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Lyft_logo.svg",
-    "Meta": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
-    "Microsoft": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-    "Netflix": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-    "Oracle": "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
-    "Palantir": "https://upload.wikimedia.org/wikipedia/commons/1/13/Palantir_Technologies_logo.svg",
-    "PayPal": "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg",
-    "Salesforce": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
-    "Snapchat": "https://upload.wikimedia.org/wikipedia/en/c/c4/Snapchat_logo.svg",
-    "Spotify": "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
-    "Twitter": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg",
-    "Uber": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png",
-    "Yahoo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Yahoo%21_logo_2019.svg",
-    
-    # Novas Empresas Adicionadas
-    "37Signals": "https://37signals.com/images/37signals-logo.svg",
-    "Buffer": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Buffer_logo.svg",
-    "Datadog": "https://upload.wikimedia.org/wikipedia/commons/4/41/Datadog_logo.svg",
-    "Deel": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Deel_logo.svg",
-    "Discourse": "https://upload.wikimedia.org/wikipedia/commons/8/80/Discourse_logo.svg",
-    "DuckDuckGo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/DuckDuckGo_logo.svg",
-    "Elastic": "https://upload.wikimedia.org/wikipedia/commons/1/15/Elasticsearch_logo.svg",
-    "Epic Games": "https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg",
-    "GitLab": "https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg",
-    "MongoDB": "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg",
-    "Quora": "https://upload.wikimedia.org/wikipedia/commons/9/91/Quora_logo_2015.svg",
-    "Red Hat": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg",
-    "Revolut": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Revolut_logo.svg",
-    "Rocket.Chat": "https://upload.wikimedia.org/wikipedia/commons/6/66/Rocket.Chat_logo.svg",
-    "Stripe": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
-    "Wikimedia": "https://upload.wikimedia.org/wikipedia/commons/8/81/Wikimedia-logo.svg",
-    "Zapier": "https://upload.wikimedia.org/wikipedia/commons/9/90/Zapier_logo.svg"
+EMPRESAS_DATA = {
+    # 100% Remotas / Remote-First
+    "37Signals": {"remote_first": True, "logo": "https://37signals.com/images/37signals-logo.svg", "link": "https://37signals.com/jobs/"},
+    "Aha!": {"remote_first": True, "logo": None, "link": "https://www.aha.io/company/careers/current-openings"},
+    "Actabl": {"remote_first": True, "logo": None, "link": "https://actabl.com/"},
+    "Appcues": {"remote_first": True, "logo": None, "link": "https://www.appcues.com/company#jobs-open"},
+    "Appwrite": {"remote_first": True, "logo": None, "link": "https://www.appwrite.careers/platform-engineer/en"},
+    "Argyle": {"remote_first": True, "logo": None, "link": "https://argyle.com/careers#open-positions"},
+    "Bandcamp": {"remote_first": True, "logo": None, "link": "https://www.songtradr.com/careers"},
+    "Bandlab": {"remote_first": True, "logo": None, "link": "https://bandlabtechnologies.com/careers/"},
+    "Bandzoogle": {"remote_first": True, "logo": None, "link": "https://bandzoogle.com/jobs"},
+    "BeBanjo": {"remote_first": True, "logo": None, "link": "https://www.bebanjo.com/company/careers"},
+    "Bitovi": {"remote_first": True, "logo": None, "link": "https://www.bitovi.com/about/jobs"},
+    "Bonsai": {"remote_first": True, "logo": None, "link": "https://apply.workable.com/hellobonsai/?lng=en"},
+    "Buffer": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Buffer_logo.svg", "link": "https://buffer.com/salaries"},
+    "Chess.com": {"remote_first": True, "logo": None, "link": "https://www.chess.com/jobs"},
+    "CodeSandbox": {"remote_first": True, "logo": None, "link": "https://codesandbox.io/careers"},
+    "Convert": {"remote_first": True, "logo": None, "link": "https://convert.recruit.charliehr.com/careers"},
+    "Customer.io": {"remote_first": True, "logo": None, "link": "https://customer.io/careers#job-openings"},
+    "Datadog": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/4/41/Datadog_logo.svg", "link": "https://careers.datadoghq.com/remote/"},
+    "Deel": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Deel_logo.svg", "link": "https://jobs.ashbyhq.com/Deel"},
+    "Delighted": {"remote_first": True, "logo": None, "link": "https://delighted.com/jobs"},
+    "Discourse": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/8/80/Discourse_logo.svg", "link": "https://www.discourse.org/team"},
+    "Doist": {"remote_first": True, "logo": None, "link": "https://doist.com/careers#open-roles"},
+    "DuckDuckGo": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/DuckDuckGo_logo.svg", "link": "https://duckduckgo.com/hiring"},
+    "Elastic": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Elasticsearch_logo.svg", "link": "https://jobs.elastic.co/jobs/department/engineering?size=n_20_n"},
+    "Emsisoft": {"remote_first": True, "logo": None, "link": "https://wellfound.com/company/emsisoft"},
+    "Envato": {"remote_first": True, "logo": None, "link": "https://jobs.lever.co/envato-2"},
+    "Epsy": {"remote_first": True, "logo": None, "link": "https://www.epsyhealth.com/careers"},
+    "Ergeon": {"remote_first": True, "logo": None, "link": "https://www.ergeon.com/careers/"},
+    "Eyeo": {"remote_first": True, "logo": None, "link": "https://eyeo.com/careers?office=29172640"},
+    "Fingerprint": {"remote_first": True, "logo": None, "link": "https://fingerprint.com/careers/jobs/"},
+    "GitLab": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg", "link": "https://about.gitlab.com/jobs/all-jobs/"},
+    "Iterative": {"remote_first": True, "logo": None, "link": "https://jobs.lever.co/iterative?lever-origin=applied&lever-source%5B%5D=remoteintech"},
+    "Komoot": {"remote_first": True, "logo": None, "link": "https://apply.workable.com/komoot/"},
+    "MailerLite": {"remote_first": True, "logo": None, "link": "https://www.mailerlite.com/jobs"},
+    "Mixmax": {"remote_first": True, "logo": None, "link": "https://www.mixmax.com/careers?hsCtaAttrib=158184435311#open-positions"},
+    "Mixrank": {"remote_first": True, "logo": None, "link": "https://app.dover.com/jobs/mixrank"},
+    "OpenCraft": {"remote_first": True, "logo": None, "link": "https://opencraft.com/jobs/"},
+    "Parabol": {"remote_first": True, "logo": None, "link": "https://www.parabol.co/join/"},
+    "Plex": {"remote_first": True, "logo": None, "link": "https://www.plex.tv/careers/"},
+    "Primer": {"remote_first": True, "logo": None, "link": "https://primer.io/careers"},
+    "Prisma": {"remote_first": True, "logo": None, "link": "https://www.prisma.io/careers#current"},
+    "QuestDB": {"remote_first": True, "logo": None, "link": "https://questdb.com/careers/core-database-engineer/"},
+    "Quora": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/9/91/Quora_logo_2015.svg", "link": "https://jobs.ashbyhq.com/quora"},
+    "Recharge": {"remote_first": True, "logo": None, "link": "https://job-boards.greenhouse.io/recharge"},
+    "RequestTracker": {"remote_first": True, "logo": None, "link": "https://requesttracker.com/careers/"},
+    "Rocket.Chat": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/6/66/Rocket.Chat_logo.svg", "link": "https://www.rocket.chat/jobs"},
+    "Sardine": {"remote_first": True, "logo": None, "link": "https://www.sardine.ai/careers#openings"},
+    "Semaphore": {"remote_first": True, "logo": None, "link": "https://semaphore.io/hiring"},
+    "Skillshare": {"remote_first": True, "logo": None, "link": "https://jobs.lever.co/skillshare"},
+    "StickerMule": {"remote_first": True, "logo": None, "link": "https://www.stickermule.com/careers"},
+    "SweetRush": {"remote_first": True, "logo": None, "link": "https://www.sweetrush.com/join-us#current-openings"},
+    "TestGorilla": {"remote_first": True, "logo": None, "link": "https://www.testgorilla.com/careers/#jobs"},
+    "Toggl": {"remote_first": True, "logo": None, "link": "https://toggl.com/jobs/#jobs"},
+    "Varnish": {"remote_first": True, "logo": None, "link": "https://varnish-software.teamtailor.com/jobs"},
+    "Wikimedia": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/8/81/Wikimedia-logo.svg", "link": "https://wikimediafoundation.org/jobs/#section-8"},
+    "Wildbit": {"remote_first": True, "logo": None, "link": "https://www.wildbit.com/jobs"},
+    "Zapier": {"remote_first": True, "logo": "https://upload.wikimedia.org/wikipedia/commons/9/90/Zapier_logo.svg", "link": "https://zapier.com/jobs#job-openings"},
+
+    # Híbridas / Presenciais / Depende do Cargo (Big Techs)
+    "Accenture": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg", "link": "https://www.accenture.com/br-pt/careers"},
+    "Adobe": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Adobe_corporate_logo.svg", "link": "https://www.adobe.com/careers.html"},
+    "Airbnb": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg", "link": "https://careers.airbnb.com/"},
+    "Amazon": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", "link": "https://www.amazon.jobs/"},
+    "Apple": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", "link": "https://www.apple.com/careers/br/"},
+    "Bloomberg": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/7/75/Bloomberg_logo.svg", "link": "https://www.bloomberg.com/company/careers/"},
+    "Cisco": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg", "link": "https://jobs.cisco.com/"},
+    "DoorDash": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/DoorDash_Logo.svg", "link": "https://careers.doordash.com/"},
+    "eBay": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg", "link": "https://careers.ebayinc.com/"},
+    "Epic Games": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg", "link": "https://www.epicgames.com/site/en-US/careers/jobs?country=Brazil&department=Engineering&page=1"},
+    "Goldman Sachs": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/6/61/Goldman_Sachs.svg", "link": "https://www.goldmansachs.com/careers/"},
+    "Google": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", "link": "https://www.google.com/about/careers/applications/jobs/results/"},
+    "LinkedIn": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg", "link": "https://careers.linkedin.com/"},
+    "Lyft": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Lyft_logo.svg", "link": "https://www.lyft.com/careers"},
+    "Meta": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg", "link": "https://www.metacareers.com/"},
+    "Microsoft": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg", "link": "https://jobs.careers.microsoft.com/global/en/search?lc=Brazil&p=Software%20Engineering&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true"},
+    "MongoDB": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg", "link": "https://www.mongodb.com/company/careers/teams/engineering"},
+    "Netflix": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg", "link": "https://jobs.netflix.com/"},
+    "Oracle": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg", "link": "https://www.oracle.com/corporate/careers/"},
+    "Palantir": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/1/13/Palantir_Technologies_logo.svg", "link": "https://www.palantir.com/careers/"},
+    "PayPal": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg", "link": "https://www.paypal.com/us/webapps/mpp/jobs"},
+    "Red Hat": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg", "link": "https://www.redhat.com/en/jobs"},
+    "Revolut": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Revolut_logo.svg", "link": "https://www.revolut.com/careers/"},
+    "Salesforce": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg", "link": "https://www.salesforce.com/company/careers/"},
+    "Snapchat": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/en/c/c4/Snapchat_logo.svg", "link": "https://careers.snap.com/"},
+    "Spotify": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg", "link": "https://lifeatspotify.com/"},
+    "Stripe": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg", "link": "https://stripe.com/jobs/search?remote_locations=Latin+America--Brazil+Remote"},
+    "Twitter / X": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg", "link": "https://careers.x.com/"},
+    "Uber": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png", "link": "https://www.uber.com/us/en/careers/"},
+    "Yahoo": {"remote_first": False, "logo": "https://upload.wikimedia.org/wikipedia/commons/3/36/Yahoo%21_logo_2019.svg", "link": "https://www.yahooinc.com/careers/"}
 }
 
-CAREERS_LINKS = {
-    # Lista Anterior
-    "Accenture": "https://www.accenture.com/br-pt/careers",
-    "Adobe": "https://www.adobe.com/careers.html",
-    "Airbnb": "https://careers.airbnb.com/",
-    "Amazon": "https://www.amazon.jobs/",
-    "Apple": "https://www.apple.com/careers/br/",
-    "Bloomberg": "https://www.bloomberg.com/company/careers/",
-    "Cisco": "https://jobs.cisco.com/",
-    "DoorDash": "https://careers.doordash.com/",
-    "eBay": "https://careers.ebayinc.com/",
-    "Facebook": "https://www.metacareers.com/",
-    "Goldman Sachs": "https://www.goldmansachs.com/careers/",
-    "Google": "https://www.google.com/about/careers/applications/jobs/results/",
-    "LinkedIn": "https://careers.linkedin.com/",
-    "Lyft": "https://www.lyft.com/careers",
-    "Meta": "https://www.metacareers.com/",
-    "Microsoft": "https://jobs.careers.microsoft.com/global/en/search?lc=Brazil&p=Software%20Engineering&l=en_us&pg=1&pgSz=20&o=Relevance&flt=true",
-    "Netflix": "https://jobs.netflix.com/",
-    "Oracle": "https://www.oracle.com/corporate/careers/",
-    "Palantir": "https://www.palantir.com/careers/",
-    "PayPal": "https://www.paypal.com/us/webapps/mpp/jobs",
-    "Salesforce": "https://www.salesforce.com/company/careers/",
-    "Snapchat": "https://careers.snap.com/",
-    "Spotify": "https://lifeatspotify.com/",
-    "Twitter": "https://careers.x.com/",
-    "Uber": "https://www.uber.com/us/en/careers/",
-    "Yahoo": "https://www.yahooinc.com/careers/",
+EMPRESAS_DISPONIVEIS = sorted(list(EMPRESAS_DATA.keys()))
 
-    # Novas Empresas Adicionadas
-    "37Signals": "https://37signals.com/jobs/",
-    "Aha!": "https://www.aha.io/company/careers/current-openings",
-    "Actabl": "https://actabl.com/",
-    "Appcues": "https://www.appcues.com/company#jobs-open",
-    "Appwrite": "https://www.appwrite.careers/platform-engineer/en",
-    "Argyle": "https://argyle.com/careers#open-positions",
-    "Bandcamp": "https://www.songtradr.com/careers",
-    "Bandlab": "https://bandlabtechnologies.com/careers/",
-    "Bandzoogle": "https://bandzoogle.com/jobs",
-    "BeBanjo": "https://www.bebanjo.com/company/careers",
-    "RequestTracker": "https://requesttracker.com/careers/",
-    "Bitovi": "https://www.bitovi.com/about/jobs",
-    "Bonsai": "https://apply.workable.com/hellobonsai/?lng=en",
-    "Buffer": "https://buffer.com/salaries",
-    "Chess.com": "https://www.chess.com/jobs",
-    "CodeSandbox": "https://codesandbox.io/careers",
-    "Convert": "https://convert.recruit.charliehr.com/careers",
-    "Customer.io": "https://customer.io/careers#job-openings",
-    "Datadog": "https://careers.datadoghq.com/remote/",
-    "Deel": "https://jobs.ashbyhq.com/Deel",
-    "Delighted": "https://delighted.com/jobs",
-    "Discourse": "https://www.discourse.org/team",
-    "Doist": "https://doist.com/careers#open-roles",
-    "DuckDuckGo": "https://duckduckgo.com/hiring",
-    "Elastic": "https://jobs.elastic.co/jobs/department/engineering?size=n_20_n",
-    "Emsisoft": "https://wellfound.com/company/emsisoft",
-    "Envato": "https://jobs.lever.co/envato-2",
-    "Epic Games": "https://www.epicgames.com/site/en-US/careers/jobs?country=Brazil&department=Engineering&page=1",
-    "Epsy": "https://www.epsyhealth.com/careers",
-    "Ergeon": "https://www.ergeon.com/careers/",
-    "Eyeo": "https://eyeo.com/careers?office=29172640",
-    "Fingerprint": "https://fingerprint.com/careers/jobs/",
-    "GitLab": "https://about.gitlab.com/jobs/all-jobs/",
-    "Iterative": "https://jobs.lever.co/iterative?lever-origin=applied&lever-source%5B%5D=remoteintech",
-    "Komoot": "https://apply.workable.com/komoot/",
-    "MailerLite": "https://www.mailerlite.com/jobs",
-    "Mixmax": "https://www.mixmax.com/careers?hsCtaAttrib=158184435311#open-positions",
-    "Mixrank": "https://app.dover.com/jobs/mixrank",
-    "MongoDB": "https://www.mongodb.com/company/careers/teams/engineering",
-    "OpenCraft": "https://opencraft.com/jobs/",
-    "Parabol": "https://www.parabol.co/join/",
-    "Plex": "https://www.plex.tv/careers/",
-    "Primer": "https://primer.io/careers",
-    "Prisma": "https://www.prisma.io/careers#current",
-    "QuestDB": "https://questdb.com/careers/core-database-engineer/",
-    "Quora": "https://jobs.ashbyhq.com/quora",
-    "Recharge": "https://job-boards.greenhouse.io/recharge",
-    "Red Hat": "https://www.redhat.com/en/jobs",
-    "Revolut": "https://www.revolut.com/careers/",
-    "Rocket.Chat": "https://www.rocket.chat/jobs",
-    "Sardine": "https://www.sardine.ai/careers#openings",
-    "Semaphore": "https://semaphore.io/hiring",
-    "Skillshare": "https://jobs.lever.co/skillshare",
-    "StickerMule": "https://www.stickermule.com/careers",
-    "Stripe": "https://stripe.com/jobs/search?remote_locations=Latin+America--Brazil+Remote",
-    "SweetRush": "https://www.sweetrush.com/join-us#current-openings",
-    "TestGorilla": "https://www.testgorilla.com/careers/#jobs",
-    "Toggl": "https://toggl.com/jobs/#jobs",
-    "Varnish": "https://varnish-software.teamtailor.com/jobs",
-    "Wikimedia": "https://wikimediafoundation.org/jobs/#section-8",
-    "Wildbit": "https://www.wildbit.com/jobs",
-    "Zapier": "https://zapier.com/jobs#job-openings"
-}
-EMPRESAS_DISPONIVEIS = sorted(list(LOGOS_EMPRESAS.keys()))
+# Dicionários auxiliares para a aba LeetCode
+LOGOS_EMPRESAS = {k: v["logo"] for k, v in EMPRESAS_DATA.items() if v["logo"]}
+CAREERS_LINKS = {k: v["link"] for k, v in EMPRESAS_DATA.items()}
 
 # ---------------------------------------------------------
 # 4. GERENCIAMENTO DE ARQUIVOS DE DADOS (JSON)
@@ -347,7 +302,9 @@ with aba1:
     
     empresa_selecionada = st.sidebar.selectbox("Selecione a Empresa:", options=EMPRESAS_DISPONIVEIS)
     
-    url_csv = f"https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/{empresa_selecionada}/5.%20All.csv"
+    # Tratamento para nome da pasta no repositório LeetCode
+    empresa_query = "Meta" if empresa_selecionada == "Twitter / X" else empresa_selecionada
+    url_csv = f"https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/{empresa_query}/5.%20All.csv"
     
     try:
         df = pd.read_csv(url_csv)
@@ -378,6 +335,8 @@ with aba1:
             logo_url = LOGOS_EMPRESAS.get(empresa_selecionada)
             if logo_url:
                 st.image(logo_url, width=110)
+            else:
+                st.markdown(f"### 🏢 {empresa_selecionada}")
             
         with col_info:
             st.subheader(f"Empresa: {empresa_selecionada}")
@@ -404,7 +363,7 @@ with aba1:
         )
 
     except Exception as e:
-        st.warning(f"Não foi possível carregar os dados de **{empresa_selecionada}**.")
+        st.info(f"Selecione uma empresa para visualizar as questões salvas do LeetCode ou acesse a aba de carreiras.")
 
 # =========================================================
 # ABA 2: VAGAS REMOTAS (POSTAR + AUTO-EXPIRAÇÃO)
@@ -498,29 +457,52 @@ with aba3:
                     st.rerun()
 
 # =========================================================
-# ABA 4: PORTAIS OFICIAIS DE CARREIRAS
+# ABA 4: PORTAIS OFICIAIS DE CARREIRAS (COM FILTROS E PLACEHOLDERS)
 # =========================================================
 with aba4:
     st.header("🌐 Portais Oficiais de Carreiras - Big Techs & Multinacionais")
     st.write("Acesse diretamente a página de carreiras/vagas oficiais de cada grande empresa.")
     
-    col_busca, _ = st.columns([2, 2])
+    col_busca, col_filtro = st.columns([2, 1])
     with col_busca:
         filtro_empresa = st.text_input("🔍 Buscar empresa por nome:", "")
+    with col_filtro:
+        apenas_remotas = st.checkbox("🟢 Apenas 100% Remotas (Remote-First)", value=False)
 
     st.divider()
 
-    # Filtrar empresas com base na busca
-    empresas_filtradas = [emp for emp in CAREERS_LINKS.keys() if filtro_empresa.lower() in emp.lower()]
+    # Filtrar empresas com base na busca e modalidade
+    empresas_filtradas = {}
+    for nome, dados in sorted(EMPRESAS_DATA.items()):
+        if filtro_empresa and filtro_empresa.lower() not in nome.lower():
+            continue
+        if apenas_remotas and not dados["remote_first"]:
+            continue
+        empresas_filtradas[nome] = dados
 
     if empresas_filtradas:
         cols = st.columns(3)
-        for index, emp in enumerate(empresas_filtradas):
+        for index, (emp, dados) in enumerate(empresas_filtradas.items()):
             col = cols[index % 3]
-            url_carr = CAREERS_LINKS[emp]
-            logo_url = LOGOS_EMPRESAS.get(emp, "")
+            url_carr = dados["link"]
+            logo_url = dados["logo"]
+            is_remote = dados["remote_first"]
+            
+            tag_modelo = "🟢 100% Remota" if is_remote else "🏢 Híbrida / Presencial"
 
             with col:
+                # Imagem ou Placeholder
+                if logo_url:
+                    img_code = f'<img src="{logo_url}" style="height: 40px; max-width: 120px; object-fit: contain; margin-bottom: 12px;" />'
+                else:
+                    img_code = f'''
+                    <div style="height: 40px; display: flex; align-items: center; justify-content: center; 
+                                background-color: #f1f5f9; border-radius: 6px; font-weight: bold; color: #475569; 
+                                margin-bottom: 12px; font-size: 0.9rem;">
+                        🏢 {emp}
+                    </div>
+                    '''
+
                 st.markdown(f"""
                     <div style="
                         background-color: #ffffff;
@@ -531,8 +513,9 @@ with aba4:
                         text-align: center;
                         box-shadow: 0 4px 6px rgba(0,0,0,0.03);
                     ">
-                        <img src="{logo_url}" style="height: 40px; max-width: 120px; object-fit: contain; margin-bottom: 12px;" />
-                        <h4 style="margin: 0 0 10px 0; font-size: 1.1rem; color: #0f172a;">{emp}</h4>
+                        {img_code}
+                        <h4 style="margin: 0 0 4px 0; font-size: 1.1rem; color: #0f172a;">{emp}</h4>
+                        <p style="margin: 0 0 10px 0; font-size: 0.8rem; color: #64748b;">{tag_modelo}</p>
                         <a href="{url_carr}" target="_blank" style="
                             display: inline-block;
                             padding: 8px 16px;
@@ -546,7 +529,7 @@ with aba4:
                     </div>
                 """, unsafe_allow_html=True)
     else:
-        st.info("Nenhuma empresa encontrada com este nome.")
+        st.info("Nenhuma empresa encontrada com estes critérios.")
 
 # =========================================================
 # RODAPÉ DA BARRA LATERAL (CONTADOR DE ACESSOS & LINKEDIN)
