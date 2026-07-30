@@ -251,7 +251,7 @@ CAREERS_LINKS = {
     "Wildbit": "https://www.wildbit.com/jobs",
     "Zapier": "https://zapier.com/jobs#job-openings"
 }
-EMPRESAS_DISPONIVEIS = sorted(list(LOGOS_EMPRESAS.keys()))
+EMPRESAS_DISPONIVEIS = sorted(list(set(list(LOGOS_EMPRESAS.keys()) + list(CAREERS_LINKS.keys()))))
 
 # ---------------------------------------------------------
 # 4. GERENCIAMENTO DE ARQUIVOS DE DADOS (JSON)
@@ -375,7 +375,7 @@ with aba1:
         col_logo, col_info, col_metrica = st.columns([1, 2, 2])
         
         with col_logo:
-            logo_url = LOGOS_EMPRESAS.get(empresa_selecionada)
+            logo_url = LOGOS_EMPRESAS.get(empresa_selecionada, "")
             if logo_url:
                 st.image(logo_url, width=110)
             
@@ -403,8 +403,8 @@ with aba1:
             height=450
         )
 
-    except Exception as e:
-        st.warning(f"Não foi possível carregar os dados de **{empresa_selecionada}**.")
+    except Exception:
+        st.warning(f"Não foi possível carregar os dados de questões do LeetCode para **{empresa_selecionada}**.")
 
 # =========================================================
 # ABA 2: VAGAS REMOTAS (POSTAR + AUTO-EXPIRAÇÃO)
@@ -518,7 +518,7 @@ with aba4:
         for index, emp in enumerate(empresas_filtradas):
             col = cols[index % 3]
             url_carr = CAREERS_LINKS[emp]
-            logo_url = LOGOS_EMPRESAS.get(emp, "")
+            logo_url = LOGOS_EMPRESAS.get(emp, "https://via.placeholder.com/120x40?text=" + emp)
 
             with col:
                 st.markdown(f"""
